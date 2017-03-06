@@ -14,7 +14,8 @@ class DuckDuckGoScrapper {
     // See https://duckduckgo.com/params for more arams
 
     request({
-      baseUrl: `https://duckduckgo.com/html`,
+      baseUrl: `https://duckduckgo.com`,
+      uri: '/html',
       qs: opts
     }, (error, response, body) => {
       if (!error) {
