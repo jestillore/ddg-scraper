@@ -34,5 +34,6 @@ ddg.search({
 
 * `q` - String (required): Your search query
 * `max` - Integer (optional): Maximum number of results
+* See [https://duckduckgo.com/params](https://duckduckgo.com/params) for more optional params
 
 `callback` - Function (required) : Called with `(err, info)` once the request has completed. `err` contains an error, if any, and `info` is an array of string urls.
