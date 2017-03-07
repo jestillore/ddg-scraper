@@ -7,9 +7,18 @@ const cheerio = require('cheerio')
 class DuckDuckGoScrapper {
   static search (opts, cb) {
     let urls = []
-    request(`https://duckduckgo.com/html?q=${escape(opts.q)}`, (error, response, body) => {
+    let max = opts.max || 0
+
+    delete opts.max
+
+    // See https://duckduckgo.com/params for more arams
+
+    request({
+      baseUrl: `https://duckduckgo.com`,
+      uri: '/html',
+      qs: opts
+    }, (error, response, body) => {
       if (!error) {
-        let max = opts.max || 0
         let $ = cheerio.load(body)
         let links = $('#links .links_main a.result__a')
         links.each((i, elem) => {
